@@ -1,12 +1,5 @@
+[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)![Misk Logo](https://i.ibb.co/KmXhJbm/
 
-Title: Mongoose Vampires<br>
-Type: Lab + Homework<br>
-Duration: 1 + hours <br>
-Creator: WDI-Meeseeks <br>
-Adapted by: Kristyn Bryan, Karolin Rafalski<br>
-
-
----
 
 # Mongoose Vampires
 
@@ -181,3 +174,12 @@ Select all vampires that:
 3. If number 1 was easy, try to connect your database to your application and show a proper index page that displays your vampire data. If this is also easy, create a show page as well where you are showing individual vampire data.
 
 4. Have extra time? Try out a few more problems on [CodeWars](https://www.codewars.com/)
+
+---
+
+Webp-net-resizeimage-1.png)
+Title: Mongoose Vampires<br>
+Type: Lab + Homework<br>
+Duration: 1 + hours <br>
+Creator: WDI-Meeseeks <br>
+Adapted by: Kristyn Bryan, Karolin Rafalski<br>

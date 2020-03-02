@@ -1,5 +1,4 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)![Misk Logo](https://i.ibb.co/KmXhJbm/
-
+[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)![Misk Logo](https://i.ibb.co/KmXhJbm/Webp-net-resizeimage-1.png)
 
 # Mongoose Vampires
 
@@ -8,16 +7,18 @@ For this lab, you will be using some of the mongoose commands that you learned t
 ![mongoose](https://s-media-cache-ak0.pinimg.com/564x/ee/b7/a9/eeb7a99383582d53e65ffcc0e4a225bd.jpg)
 
 # Resources
+
 Utilize the following resources to research the commands you will need:
+
 - Your notes from today
 - Mongoose Documentation
 - Google to find Stack Overflow articles and more
 
 # Setup
+
 1. Start your mongo server with `brew services start mongodb` in terminal
 1. Navigate to this directory in terminal and `npm i` to install `mongoose`
 1. Open the project in code, you'll be working with some starter code in the `models` folder and the `app.js` file
-
 
 # The Exercise
 
@@ -25,21 +26,20 @@ Utilize the following resources to research the commands you will need:
 
 Lets design a schema using mongoose and then use it to create some documents and eventually query for those documents.
 
-
 Our vampire collection will look something like this:
 
-``` javascript
+```javascript
 var vampire = {
   name: 'Chocula',
   title: 'Count',
   hair_color: 'brown',
   eye_color: 'brown',
   dob: new Date(1971, 2, 13, 7, 47),
-  loves: ['cereal','marshmallows'],
+  loves: ['cereal', 'marshmallows'],
   location: 'Minneapolis, Minnesota, US',
   gender: 'm',
   victims: 2
-}
+};
 ```
 
 1. Build a vampire **schema** and **model** that matches the object above inside the `models/vampires.js` file
@@ -52,34 +52,34 @@ var vampire = {
 
 1. Lastly, set the **default value of the hair color to blonde**.
 
-
-
 ## Insert Seed Data Using Mongoose
 
 Insert into the database using **create** method:
 
 ### Add the vampire data that we gave you
 
-1. We have required `seed_vampires.js` for you in the  `app.js` file. This is an array of Vampires for you to insert into your database.
+1. We have required `seed_vampires.js` for you in the `app.js` file. This is an array of Vampires for you to insert into your database.
 
 1. Write this command and run it **ONCE** in `app.js` - once you are done, comment it out or else every time you run it it will make duplicates of your data.
 
-    ```javascript
-    Vampire.insertMany(seedData, (err, vampires) => {
-      if (err){ console.log(err)}
-        console.log("added provided vampire data", vampires)
-        mongoose.connection.close();
-      });
-    ```
+   ```javascript
+   Vampire.insertMany(seedData, (err, vampires) => {
+     if (err) {
+       console.log(err);
+     }
+     console.log('added provided vampire data', vampires);
+     mongoose.connection.close();
+   });
+   ```
 
-1. Remember run  your file with `node app.js`
+1. Remember run your file with `node app.js`
 
 ### Add some new vampire data
 
 1. Using the create method, create 4 new vampires with any qualities that you like two should be male and two should be female.
 
-
 ## Querying
+
 ### Select by comparison
 
 Write a different query for each of the following:
@@ -90,8 +90,8 @@ Write a different query for each of the following:
 4. have a victim count is not equal to 210234
 5. have greater than 150 AND fewer than 500 victims
 
-
 ### Select by exists or does not exist
+
 Select all the vampires that:
 
 1. have a key of 'title'
@@ -99,8 +99,8 @@ Select all the vampires that:
 3. have a title AND no victims
 4. have victims AND the victims they have are greater than 1000
 
-
 ### Select with OR
+
 Select all the vampires that:
 
 1. are from New York, New York, US or New Orleans, Louisiana, US
@@ -108,30 +108,28 @@ Select all the vampires that:
 3. have more than 1000 victims or love marshmallows
 4. have red hair or green eyes
 
-
 ### Select objects that match one of several values
+
 Select all the vampires that:
 
 1. love either frilly shirtsleeves or frilly collars
 2. love brooding
 3. love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
-4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
-
+4. love fancy cloaks but not if they also love either top hats or virgin blood _ Hint-You will also have to use \$nin _
 
 ### Negative Selection
+
 Select all vampires that:
 
 1. love ribbons but do not have brown eyes
 2. are not from Rome
 3. do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
-5. have not killed more than 200 people
-
+4. have not killed more than 200 people
 
 ## Replace
 
 1. replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
 2. replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
-
 
 ## Update
 
@@ -142,38 +140,38 @@ Select all vampires that:
 5. Rename 'Eve's' name field to 'moniker'
 6. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
 
-
-
 ## Remove
 
 1. Remove a single document wherein the hair_color is 'brown'
 2. We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
-<hr>
-
+   <hr>
 
 ## Hungry for more
 
 1. Check out Mongoose's Query Builder!
 
-    ```js
-    Person.
-      find({ occupation: /host/ }).
-      where('name.last').equals('Ghost').
-      where('age').gt(17).lt(66).
-      where('likes').in(['vaporizing', 'talking']).
-      limit(10).
-      sort('-occupation').
-      select('name occupation').
-      exec(callback);
-    ```
+   ```js
+   Person.find({ occupation: /host/ })
+     .where('name.last')
+     .equals('Ghost')
+     .where('age')
+     .gt(17)
+     .lt(66)
+     .where('likes')
+     .in(['vaporizing', 'talking'])
+     .limit(10)
+     .sort('-occupation')
+     .select('name occupation')
+     .exec(callback);
+   ```
 
 1. Write what that does in English: `Find a person whose occupation is ...`
 
-2. Make an index route that will res.send the json of all the data in our database.
+1. Make an index route that will res.send the json of all the data in our database.
 
-3. If number 1 was easy, try to connect your database to your application and show a proper index page that displays your vampire data. If this is also easy, create a show page as well where you are showing individual vampire data.
+1. If number 1 was easy, try to connect your database to your application and show a proper index page that displays your vampire data. If this is also easy, create a show page as well where you are showing individual vampire data.
 
-4. Have extra time? Try out a few more problems on [CodeWars](https://www.codewars.com/)
+1. Have extra time? Try out a few more problems on [CodeWars](https://www.codewars.com/)
 
 ---
 

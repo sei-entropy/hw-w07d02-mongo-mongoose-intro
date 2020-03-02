@@ -38,13 +38,13 @@ const myFirstTweet = [
 console.log(myFirstTweet);
 
 // adding all the data from the seed_vampire
-Vampire.insertMany(seedData, (err, vampires) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log("added provided vampire data", vampires);
-  mongoose.connection.close();
-});
+// Vampire.insertMany(seedData, (err, vampires) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log("added provided vampire data", vampires);
+//   mongoose.connection.close();
+// });
 
 const newVampires4 = [
   {

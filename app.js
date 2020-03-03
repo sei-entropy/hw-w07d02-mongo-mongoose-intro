@@ -1,3 +1,4 @@
+
 /**********************************************************************
 Set up and Configuration
 **********************************************************************/
@@ -11,6 +12,8 @@ const mongoURI = 'mongodb://localhost:27017/'+ 'vampires';
 const db = mongoose.connection;
 
 // Connect to Mongo
+
+
 mongoose.connect( mongoURI );
 
 // Connection Error/Success
@@ -25,3 +28,11 @@ db.on( 'open' , ()=>{
 /**********************************************************************
 Write Your Code Below
 **********************************************************************/
+Vampire.insertMany(seedData, (err, vampires) => {
+  if (err) {
+    console.log("hi================")
+    console.log(err);
+  }
+  console.log('added provided vampire data', vampires);
+  mongoose.connection.close();
+});

@@ -363,3 +363,128 @@ const newVampires = [
 //     db.close();
 //   }
 // );
+
+
+
+
+
+
+
+
+  //         Update
+
+// 1-
+// Vampire.findOneAndUpdate({ name: 'Guy Man' }, 
+// { $set: { gender: 'f' } }, 
+// { new: true, strict: false, }, 
+
+// (err, vampires) => {
+//   if (err) { console.log(e) }
+//   else { 
+//     console.log(' **   Update Guy Man to have a gender of f  **');  
+//     console.log(vampires) };
+//   db.close();
+// })
+
+
+
+
+// 2-
+// Vampire.findOneAndUpdate({ name: 'Eve' }, 
+// { $set: { gender: 'm' } }, 
+// { new: true, strict: false, }, 
+
+// (err, vampires) => {
+//   if (err) { console.log(e) }
+//   else { 
+//     console.log(' **   Update Eve to have a gender of m  **');  
+//     console.log(vampires) };
+//   db.close();
+// })
+
+
+// 3-
+// Vampire.findOneAndUpdate({ name: 'Eve' }, 
+// { $set: { hates: ['clothes', 'jobs'] } }, 
+// { new: true, strict: false, }, 
+
+// (err, vampires) => {
+//   if (err) { console.log(e) }
+//   else { 
+//     console.log(' **   Update Guy Man to have an array called hates that includes clothes,jobs **');  
+//     console.log(vampires) };
+//   db.close();
+// })
+
+
+
+// 4-
+// Vampire.findOneAndUpdate({ name: 'Guy Man' }, 
+// { $push: { hates: { $each: ['alarm clocks', 'jackalopes'] } }  }, 
+// { new: true, strict: false, }, 
+
+// (err, vampires) => {
+//   if (err) { console.log(e) }
+//   else { 
+//     console.log(' **   Update Guy Mans hates array also to include alarm clocks and jackalopes **');  
+//     console.log(vampires) };
+//   db.close();
+// })
+
+
+
+// 5-
+// Vampire.findOneAndUpdate({ name: 'Eve' }, 
+// { $rename: { name: "moniker" } }, 
+// { new: true, strict: false, }, 
+
+// (err, vampires) => {
+//   if (err) { console.log(e) }
+//   else { 
+//     console.log(' **   Rename Eves name field to moniker   **');  
+//     console.log(vampires) };
+//   db.close();
+// })
+
+
+
+// 6-
+// Vampire.findOneAndUpdate({ gender: 'f' }, 
+// { $set: { gender: 'fems' } }, 
+// { new: true, strict: false, }, 
+
+// (err, vampires) => {
+//   if (err) { console.log(e) }
+//   else { 
+//     console.log(' **   We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".   **');  
+//     console.log(vampires) };
+//   db.close();
+// })
+
+
+
+
+
+
+
+
+  //         Remove
+
+// 1- 
+// Vampire.deleteOne({  hair_color: 'brown' }, (err, vampires) => {
+//     console.log(' **  Remove a single document wherein the hair_color is brown  **');  
+//     console.log(vampires) 
+//     db.close();
+//   })
+
+
+
+// 2-
+Vampire.deleteMany({  eye_color: 'blue' }, (err, vampires) => {
+      console.log(' **  We found out that the vampires with the blue eyes were just fakes! Let remove all the vampires who have blue eyes from our database.  **');  
+      console.log(vampires) 
+      db.close();
+    })
+
+
+

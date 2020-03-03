@@ -22,6 +22,315 @@ db.on( 'open' , ()=>{
   console.log('Connection made!');
 });
 
+
+
+
 /**********************************************************************
 Write Your Code Below
 **********************************************************************/
+
+
+// Vampire.insertMany(seedData, (err, vampires) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log('added provided vampire data', vampires);
+//   mongoose.connection.close();
+// });
+
+
+
+
+// createing 4 new members  :: 
+
+/*
+const newVampires = [
+  {
+    name: 'Cirilla',
+    hair_color: 'white',
+    eye_color: 'Green',
+    dob: new Date(1770, 2, 13, 8, 47),
+    loves: ['honey','blueberry'],
+    location: ' Toussaint , Nilfgaard  ',
+    gender: 'f',
+    victims: 101,
+  },
+  {
+    name: 'Anna',
+    hair_color: 'red',
+    eye_color: 'Green',
+    dob: new Date(1770, 2, 13, 8, 47),
+    loves: ['order','wine'],
+    location: ' Toussaint , Nilfgaard  ',
+    gender: 'f',
+    victims: 450,
+  },
+  {
+    name: 'Emiel Regis',
+    hair_color: 'grey',
+    eye_color: 'black',
+    dob: new Date(1290, 2, 3, 8, 47),
+    loves: ['books','mindGames'],
+    location: ' Toussaint , Nilfgaard  ',
+    gender: 'm',
+    victims: 450,
+  },
+  {
+    name: 'Dettlaff',
+    hair_color: 'black',
+    eye_color: 'black',
+    dob: new Date(1170, 2, 13, 8, 47),
+    loves: ['order','wine'],
+    location: ' Toussaint , Nilfgaard  ',
+    gender: 'm',
+    victims: 450,
+  },
+  
+]
+
+Vampire.insertMany(newVampires)  ; 
+
+*/
+
+
+
+
+// All F .. 
+
+/*
+Vampire.find({ gender: 'f' }, (err, Vampires) => {
+  if (err) {
+    console.log('=================== ERR ============= ');
+    console.log(err);
+  } else {
+    console.log('Result : ', Vampires);
+  }
+  db.close();
+});
+
+*/
+
+
+
+// greater that 500 victims .. 
+
+/*
+Vampire.find({ victims: {$gte: 500} }, (err, Vampires) => {
+  if (err) {
+    console.log('=================== ERR ============= ');
+    console.log(err);
+  } else {
+    console.log('Result : ', Vampires);
+  }
+  db.close();
+});
+
+*/
+
+// less than 150 victims 
+/*
+Vampire.find({ victims: {$lte: 150} }, (err, Vampires) => {
+  if (err) {
+    console.log('=================== ERR ============= ');
+    console.log(err);
+  } else {
+    console.log('Result : ', Vampires);
+  }
+  db.close();
+});
+*/
+
+/*
+
+// NOT equal to ...
+
+Vampire.find({ victims: {$gte: 210234} }, (err, Vampires) => {
+  if (err) {
+    console.log('=================== ERR ============= ');
+    console.log(err);
+  } else {
+    console.log('Result : ', Vampires);
+  }
+  db.close();
+});
+
+
+
+
+
+
+// NOT equal to ...
+
+Vampire.find({$and : [  {victims:  {$gte: 150 , $lte : 500  } }]  }, (err, Vampires) => {
+  if (err) {
+    console.log('=================== ERR ============= ');
+    console.log(err);
+  } else {
+    console.log('Result : ', Vampires);
+  }
+  db.close();
+});
+
+
+
+// key TITLE
+
+ Vampire.find({}, 'title', (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+// do not have the key victims
+
+ Vampire.find( { victims : null }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+// have a title AND no victims
+
+ Vampire.find(  {  $and : [ {title : { $ne: null } } , { victims : null } ] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+// have victims AND the victims they have are greater than 1000
+
+ Vampire.find(  {  $and : [ {victims : { $gte: 500 } } , { victims : { $ne: null }  } ] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+  
+//are from New York, New York, US or New Orleans, Louisiana, US
+
+ Vampire.find(  { $or: [ { location: 'New Orleans, Louisiana, US '}, { location:'New York, New York, US' } ] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+// love brooding or being tragic
+
+ Vampire.find(  { $or: [ { loves: 'brooding'}, { loves:'being tragic' } ] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+// have more than 1000 victims or do love marshmallows
+
+ Vampire.find(  { $or: [ { loves: 'marshmallows'}, { victims:{ $gte: 1000 }  } ] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+//have red hair or green eyes
+
+ Vampire.find(  { $or: [ { hair_color: 'red'}, { eye_color: 'green'  } ] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+
+
+//love either frilly shirtsleeves or frilly collars
+
+ Vampire.find(  { $or: [ { loves: 'frilly shirtsleeves' }, { loves: 'frilly collars' } ] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+// love brooding
+
+ Vampire.find(   { loves: 'brooding' }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+// love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+
+ Vampire.find(  { $or: [ { loves: 'appearing innocent' }, { loves: 'trickery' }, { loves: 'lurking in rotting mansions' } , { loves: 'R&B music' } ] }, 
+ (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+// love fancy cloaks but not if they also love either top hats or virgin blood _ Hint-You will also have to use $nin _
+
+ Vampire.find(  { loves: 'fancy cloaks' } , {$or : [ { loves: { $nin: 'virgin blood' } }, { loves: { $nin: 'top hats' }} ]} , (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+
+
+// love ribbons but do not have brown eyes
+
+ Vampire.find( {$and :[ { loves: 'ribbons' }, { eye_color: { $ne: 'brown' }  }] }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+   
+
+// are not from Rome
+
+
+Vampire.find( { location: { $nin: 'Rome' }  }, (err, vampires) => {
+     console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+
+ Vampire.find( { love: { $nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic, brooding'] }  }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+ 
+// have not killed more than 200 people
+
+
+ Vampire.find( { victims: {$let 200} }, (err, vampires) => {
+      console.log('=================== ERR ============= ');
+     console.log(vampires);
+     db.close();
+   });
+
+*/
+

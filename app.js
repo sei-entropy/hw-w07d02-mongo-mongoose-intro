@@ -25,191 +25,324 @@ db.on( 'open' , ()=>{
 /**********************************************************************
 Write Your Code Below
 **********************************************************************/
-// Vampire.insertMany(seedData, (err, vampires) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   console.log('added provided vampire data', vampires);
-//   mongoose.connection.close();
-// });
+
+Vampire.insertMany(seedData, (err, vampires) => {
+  if (err) {
+    console.log(err);
+  } else{
+  console.log('added provided vampire data', vampires);
+  }
+  db.close();
+});
 
 
 
+//vampir 1
+var vampire1 = {
+    name: "Chocula",
+    title: "Count",
+    hair_color: "brown",
+    eye_color: "brown",
+    dob: new Date(1971, 2, 13, 7, 47),
+    loves: ["cereal", "marshmallows"],
+    location: "Minneapolis, Minnesota, US",
+    gender: "m",
+    victims: 2
+  };
 
-// const vamas = [{
-//   name: 'mohammed',
-//   title: 'Count',
-//   hair_color: 'brown',
-//   eye_color: 'brown',
-//   dob: new Date(2020, 2, 13, 4, 10),
-//   loves: ['cereal', 'marshmallows'],
-//   location: 'saudi, riyadh, ar',
-//   gender: 'm',
-//   victims: 2
-// },
-// {
-//   name: 'ali',
-//   title: 'Count',
-//   hair_color: 'red',
-//   eye_color: 'red',
-//   dob: new Date(2020, 2, 13, 4, 10),
-//   loves: ['icecream', 'marshmallows'],
-//   location: 'saudi, riyadh, ar',
-//   gender: 'm',
-//   victims: 100
-// },{
-//   name: 'sara',
-//   title: 'kill',
-//   hair_color: 'blue',
-//   eye_color: 'brown',
-//   dob: new Date(2020, 2, 13, 4, 10),
-//   loves: ['cereal', 'no'],
-//   location: 'saudi, riyadh, ar',
-//   gender: 'f',
-//   victims: 20
-// },{
-//   name: 'al',
-//   title: 'kill',
-//   hair_color: 'black',
-//   eye_color: 'black',
-//   dob: new Date(2020, 2, 13, 4, 10),
-//   loves: ['cereal', 'marshmallows'],
-//   location: 'saudi, riyadh, ar',
-//   gender: 'f',
-//   victims: 10
-// }
+  Vampire.create(vampire1, (err, Vampire) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("added provided vampire1 data", Vampire);
+      }
+      db.close();
+    });
 
 
+//vampir 2
+var vampire2 = {
+  name: "Chocula",
+  title: "Count",
+  hair_color: "brown",
+  eye_color: "brown",
+  dob: new Date(1971, 2, 13, 7, 47),
+  loves: ["cereal", "marshmallows"],
+  location: "Minneapolis, Minnesota, US",
+  gender: "m",
+  victims: 2
+};
 
-// ];
-// Vampire.insertMany(vamas, (error, Vampire) => {
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log(Vampire);
-//   }
-//   db.close();
-// });
+Vampire.create(vampire2, (err, Vampire) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("added provided vampire2 data", Vampire);
+    }
+    db.close();
+  });
 
-//find all female
-// Vampire.find({gender:'f'}, (err, Vampire) => {
-//   console.log(Vampire);
-//   db.close();
-// });
+  //vampire 3
+  var vampire3 = {
+  name: "Chocula",
+  title: "Count",
+  hair_color: "brown",
+  eye_color: "brown",
+  dob: new Date(1971, 2, 13, 7, 47),
+  loves: ["cereal", "marshmallows"],
+  location: "Minneapolis, Minnesota, US",
+  gender: "f",
+  victims: 2
+};
 
-// find all victims more 500 
-// Vampire.find({ victims: { $gte: 500 } }, (err, Vampire) => {
-//   console.log(Vampire);
-//   db.close();
-// });
+Vampire.create(vampire3, (err, Vampire) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("added provided vampire3 data", Vampire);
+    }
+    db.close();
+  });
 
-//find all victims less 150 
+// //vampire 4
+var vampire4 = {
+  name: "Chocula",
+  title: "Count",
+  hair_color: "brown",
+  eye_color: "brown",
+  dob: new Date(1971, 2, 13, 7, 47),
+  loves: ["cereal", "marshmallows"],
+  location: "Minneapolis, Minnesota, US",
+  gender: "f",
+  victims: 2
+};
 
-// Vampire.find({ victims: { $lte: 150 } }, (err, Vampire) => {
-//     console.log(Vampire);
-//     db.close();
-//   });
-
-//victim count is not equal to 210234
-
-// Vampire.find({ victims: { $ne: 210234 } }, (err, Vampire) => {
-//     console.log(Vampire);
-//     db.close();
-//   });
-
-  // Vampire.find( { $and: [ { victims: { $gte: 150 } }, { victims: { $lte: 500 } } ] }, (err, Vampire) => {
-  //   console.log(Vampire);
-  //   db.close();
-  // });
-
-  // Vampire.find( {title: { $exists: true }}, (err, Vampire) => {
-  //   console.log(Vampire);
-  //   db.close();
-  // });
-
-  // Vampire.find( {victims: { $exists: false }}, (err, Vampire) => {
-  //   console.log(Vampire);
-  //   db.close();
-  // });
-
-  //have title and no victims
-  // Vampire.find( { $and: [ {victims: { $exists: false }}, {title: { $exists: true }} ] }, (err, Vampire) => {
-  //     console.log(Vampire);
-  //     db.close();
-  //   });
-
-  //have victims and more 1000
-    // Vampire.find( { $and: [ {victims: { $exists: true }}, { victims: { $gte: 1000 } } ] }, (err, Vampire) => {
-    //   console.log(Vampire);
-    //   db.close();
-    // });
-
-
-
-   //from New York, New York 
-    // Vampire.find( { $or: [ { location: "New York, New York, US" }, { location: 'New Orleans, Louisiana, US' } ] }, (err, Vampire) => {
-    //   console.log(Vampire);
-    //   db.close();
-    // });
-
-    //ve brooding or being tragic
-    // Vampire.find( { $or: [ { loves: "love brooding" }, { loves: 'being tragic' } ] }, (err, Vampire) => {
-    //   console.log(Vampire);
-    //   db.close();
-    // });
-
-    // Vampire.find( { $or: [ { victims: { $gte: 1000 } }, { loves: 'marshmallows' } ] }, (err, Vampire) => {
-    //   console.log(Vampire);
-    //   db.close();
-    // });
+Vampire.create(vampire4, (err, Vampire) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("added provided vampire4 data", Vampire);
+  }
+  db.close();
+});
 
 
-  // have red hair or green eyes
-  // Vampire.find( { $or: [ { eye_color: "green" }, { hair_color: 'red' } ] }, (err, Vampire) => {
-  //     console.log(Vampire);
-  //     db.close();
-  //   });
+//Querying
+/////////////  Select by comparison  /////////////
+//1
+Vampire.find({ gender :'f'}, (err, vam) => {
+  console.log("females vampires "  + vam);
+  db.close();
+});
 
-  // Vampire.find( { $or: [ { loves: "frilly shirtsleeves" }, { loves: 'frilly collars' } ] }, (err, Vampire) => {
-  //       console.log(Vampire);
-  //       db.close();
-  //     });
+//2
+Vampire.find({ victims: { $gt: 500 } }, (err, vam) => {
+  console.log(" vampires greater than 500 victams are " + vam);
+  db.close();
+});
 
-  //replace the vampire called 'Claudia' 
-  // Vampire.findOneAndUpdate(
-  //   { name: 'Claudia' },
-  //   { name: "Eve" },
-  //   {portrayed_by: "Tilda Swinton" },
-  //   (err, tweet) => {
-  //     if (err) {
-  //       console.log(err);
-  //     } else {
-  //       console.log(tweet);
-  //     }
-  //     db.close();
-  //   }
-  // );
+//3
+Vampire.find({ victims: { $lte: 150 } }, (err, vam) => {
+  console.log(" vampires less than or equal to 150 victams are " + vam);
+  db.close();
+});
 
+//4
+Vampire.find({ victims: { $ne: 210234} }, (err, vam) => {
+  console.log(" vampires not equal to 210234 victams is " + vam);
+  db.close();
+});
 
+//5
+Vampire.find({ victims: { $gt: 150 ,$lt:500} }, (err, vam) => {
+  console.log(" vampires greater than 150 AND fewer than 500 victams are " + vam);
+  db.close();
+});
 
+/////////////  Select by exists or does not exist  /////////////
+//1
+Vampire.find({ title: { $exists: true} }, (err, vam) => {
+  console.log(
+    " vampires with title is  " + vam
+  );
+  db.close();
+});
 
-  // all delete 
+//2
+Vampire.find({ victims: { $exists: false } }, (err, vam) => {
+  console.log(" vampires with no victims is  " + vam);
+  db.close();
+});
 
-  // Remove a single document wherein the hair_color is 'brown'
-  // Vampire.findOneAndRemove({ hair_color: 'brown' }, (err, Vampire) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log('This is the deleted tweet:', Vampire);
-  //   }
-  //   db.close();
-  // });
-  // vampires with the blue eyes
-  // Vampire.remove({ eye_color: 'blue' }, (err, Vampire) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log('This is the deleted tweet:', Vampire);
-  //   }
-  //   db.close();
-  // });
+//3
+Vampire.find(
+  { victims: { $exists: false }, title: { $exists: true } },
+  (err, vam) => {
+    console.log(" vampires with title and no victims is  " + vam);
+    db.close();
+  });
+
+//4
+Vampire.find(
+  { victims: { $exists: true }, victims: { $gt: 1000 } },
+  (err, vam) => {
+    console.log(" vampires with title and no victims is  " + vam);
+    db.close();
+  });
+
+/////////////  Select with OR  /////////////
+//1
+Vampire.find({
+    $or: [
+      { location: "New York, New York, US" },
+      { location: "New Orleans, Louisiana, US" }
+    ]
+  },
+  (err, vam) => {
+    console.log(" vampires from New York, New York, US or New Orleans, Louisiana, US  " + vam);
+    db.close();
+  });
+
+//2
+Vampire.find({
+    $or: [{ loves: "brooding" }, { loves: "being tragic" }]
+  },
+  (err, vam) => {
+    console.log(" vampires brooding or being tragic  " + vam);
+    db.close();
+  });
+
+//3
+Vampire.find({
+    $or: [{ victims: { $gte: 1000 } }, { loves: "marshmallows" }]
+  },
+  (err, vam) => {
+    console.log(" vampires brooding or being tragic  " + vam);
+    db.close();
+  });
+
+//4
+Vampire.find({
+    $or: [{ eye_color: "green" }, { hair_color: "red" }]
+  },
+  (err, vam) => {
+    console.log(" vampires brooding or being tragic  " + vam);
+    db.close();
+  });
+
+/////////////  Select objects that match one of several values  /////////////
+//1
+Vampire.find({ loves: { $elemMatch: { $eq: "frilly shirtsleeves" , $eq: "frilly collars" }}},
+  (err, vam) => {
+    console.log( " vampires love either frilly shirtsleeves or frilly collars  " + vam
+    );
+    db.close();
+  });
+
+//2
+Vampire.find({loves: { $elemMatch: { $eq: "brooding"} } },
+  (err, vam) => {
+    console.log(
+      " vampires love brooding  " + vam
+    );
+    db.close();
+  });
+
+//3
+Vampire.find({
+    loves: {
+      $elemMatch: {
+        $eq: "appearing innocent",
+        $eq: "trickery",
+        $eq: "lurking in rotting mansions",
+        $eq: "R&B music"
+      }}},
+  (err, vam) => {
+    console.log(
+      " vampires love appearing innocent, trickery, lurking in rotting mansions or R&B music  " + vam);
+    db.close();
+  });
+
+//4
+Vampire.find({ loves: {  $nin : ['top hats','virgin blood'], $eq: "fancy cloaks" }  }, (err, vam) => {
+  console.log(
+    " vampires love fancy cloaks but not if they also love either top hats or virgin blood  " +vam);
+  db.close();
+});
+
+/////////////  Negative Selection  /////////////
+//1
+Vampire.find({ loves: { $eq: "ribbons" }, eye_color : {$ne: "brown"} }, (err, vam) => {
+  console.log(" vampires love ribbons but do not have brown eyes  " + vam);
+  db.close();
+});
+
+//2
+Vampire.find({ location: { $not: /^Rome.*/ } }, (err, vam) => {
+  console.log(" vampires love ribbons but do not have brown eyes  " + vam);
+  db.close();
+});
+
+//3
+Vampire.find(
+  {
+    loves: {
+      $nin:[ "fancy cloaks", "frilly shirtsleeves", "appearing innocent", "being tragic", "brooding"]
+    }},
+  (err, vam) => {
+    console.log(" vampires love ribbons but do not have brown eyes  " + vam);
+    db.close();
+  });
+
+//4
+Vampire.find({ victims: { $lte : 200 }},
+  (err, vam) => {
+    console.log(" vampires love ribbons but do not have brown eyes  " + vam);
+    db.close();
+  });
+
+/////////////  Replace  /////////////
+//1
+Vampire.replaceOne(
+  { name: "Claudia" },
+  { name: "Eve", portrayed_by: "Tilda Swinton" },
+  console.log("replaced")
+);
+
+//2
+Vampire.replaceOne(
+  { gender: "m" },
+  { name: "Guy Man", is_actually: "were-lizard" },
+  console.log("replaced")
+);
+
+/////////////  Update  /////////////
+//1
+Vampire.findOneAndUpdate({ name: "Guy Man" }, { $set: { gender: "f" } });
+
+//2
+Vampire.findOneAndUpdate({ name: "Eve" }, { $set: { gender: "m" } });
+
+//3
+Vampire.findOneAndUpdate(
+  { name: "Guy Man" },
+  { $set: { hates: ["clothes", "jobs"] } }
+);
+
+//4
+Vampire.findOneAndUpdate(
+  { name: "Guy Man" },
+  { $set: { hates: ["alarm clocks", "jackalopes"] } }
+);
+
+//5
+Vampire.findOneAndUpdate({ name: "Eve" }, { $set: { name: "moniker" } });
+
+// 6
+Vampire.updateMany({ gender: "f" }, { $set: { gender: "fems" } });
+
+/////////////  Remove  /////////////
+//1
+Vampire.remove({ hair_color: "brown" },true);
+//2
+Vampire.remove({ eye_color: "blue" });

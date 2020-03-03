@@ -480,11 +480,11 @@ const newVampires = [
 
 
 // 2-
-Vampire.deleteMany({  eye_color: 'blue' }, (err, vampires) => {
-      console.log(' **  We found out that the vampires with the blue eyes were just fakes! Let remove all the vampires who have blue eyes from our database.  **');  
-      console.log(vampires) 
-      db.close();
-    })
+// Vampire.deleteMany({  eye_color: 'blue' }, (err, vampires) => {
+//       console.log(' **  We found out that the vampires with the blue eyes were just fakes! Let remove all the vampires who have blue eyes from our database.  **');  
+//       console.log(vampires) 
+//       db.close();
+//     })
 
 
 

@@ -9,6 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.0.10"
-  }
+    "mongoose": "^5.9.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Najwab/hw-w07d02-mongo-mongoose-intro.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Najwab/hw-w07d02-mongo-mongoose-intro/issues"
+  },
+  "homepage": "https://github.com/Najwab/hw-w07d02-mongo-mongoose-intro#readme"
 }

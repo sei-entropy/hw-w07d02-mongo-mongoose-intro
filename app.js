@@ -25,3 +25,52 @@ db.on( 'open' , ()=>{
 /**********************************************************************
 Write Your Code Below
 **********************************************************************/
+// Vampire.insertMany(seedData, (err, vampires) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log('added provided vampire data', vampires);
+//   mongoose.connection.close();
+// });
+
+const myVampire = {
+  name: 'theHappyOne',
+  hair_color: 'yellow',
+  eye_color: 'pinkish',
+  loves: ['coffe', 'chocolate'],
+  location: 'the moon',
+  gender: 'f',
+  victims: 0
+
+};
+
+Vampire.create(myVampire, (err, vampires) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log('added provided vampire data', vampires);
+  mongoose.connection.close();
+})
+
+Vampire.find({gender: 'f'}, (err, vampires) => {
+    if (err) {
+      console.log(err);}
+    
+    console.log(vampires);
+    mongoose.connection.close();
+});
+
+Vampire.findOneAndRemove({hair_color: 'red'},(err, vampires) => {
+  if (err) {
+    console.log(err);}
+  
+  console.log(vampires);
+  mongoose.connection.close();
+});
+Vampire.remove({eye_color: 'blue'},(err, vampires) => {
+  if (err) {
+    console.log(err);}
+  
+  console.log('there eyes are blue', vampires);
+  mongoose.connection.close();
+});

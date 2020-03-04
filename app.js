@@ -380,16 +380,176 @@ love either top hats or virgin blood _ Hint-You will also have to use $nin _
 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
 **********************************************************************/ 
 
-Vampire.findOneAndUpdate(
-  { name: 'Claudia' },
-  { $set: { name: 'Eva' } }, 
-  { $set: {portrayed_by:'Tilda Swinton' }},
-  { new: true },
-        (err, name) => {
-      console.log(name);
-      db.close();
-  });
+// Vampire.findOneAndUpdate(
+//     { name: "Claudia" },
+//     { $set: { name: "Eve", portrayed_by: "Tilda Swinton" } },
+//     { new: true, strict: false },
+//     (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//         }
+//     }
+// );
+
  /**********************************************************************
 2-replace the first male vampire with another whose name is 'Guy Man', 
 and who has a key 'is_actually' with the value 'were-lizard'
 **********************************************************************/ 
+// Vampire.findOneAndUpdate(
+//  { $and: [{ gender: "Guy Man" },
+//   { is_actually: { $exists: true } }] },
+//       { is_actually: "were-lizard" },
+//       { new: true },
+//       (err, result) => {
+//           if (err) {
+//               console.log(err);
+//           } else {
+//               console.log(result);
+//           }
+//       }
+//   );
+
+
+
+// -------------------------------------------
+// Update
+ /**********************************************************************
+1-Update 'Guy Man' to have a gender of 'f'
+**********************************************************************/ 
+// Vampire.findOneAndUpdate(
+//     { name: "Guy Man" },
+//     { gender: "f" },
+//     { new: true },
+//     (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//         }
+//     }
+// );
+
+ /**********************************************************************
+2-Update 'Eve' to have a gender of 'm'
+**********************************************************************/ 
+// Vampire.findOneAndUpdate(
+//     { name: "Eve" },
+//     { gender: "m" },
+//     { new: true },
+//     (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//         }
+//     }
+// );
+
+ /**********************************************************************
+3-Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+**********************************************************************/ 
+// Vampire.findOneAndUpdate(
+//     { name: "Guy Man" },
+//     { hates: ['clothes', 'jobs'] },
+//     { new: true },
+//     (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//         }
+//     }
+// );
+
+ /**********************************************************************
+4-// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+**********************************************************************/ 
+
+// Vampire.findOneAndUpdate(
+//     { name: "Guy Man" },
+//     { $push: { hates: ["alarm clocks", "jackalopes"] } },
+//     { new: true },
+//     (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//         }
+//     }
+// );
+
+ /**********************************************************************
+5-Rename 'Eve's' name field to 'moniker'
+**********************************************************************/ 
+// Vampire.findOneAndUpdate(
+//     { name: "Eve" },
+//     { name: "moniker" },
+//     { new: true },
+//     (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//         }
+//     }
+// );
+
+
+ /**********************************************************************
+6-We now no longer want to categorize female gender as "f",
+ but rather as fems. Update all females so that the they are of
+ gender "fems".
+**********************************************************************/ 
+
+// Vampire.updateMany(
+//     { gender: "f" },
+//     { gender: "fems" },
+//     { new: true },
+//     (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(result);
+//         }
+//     }
+// );
+
+
+// Remove a single document wherein the hair_color is 'brown'
+// Vampire.findOneAndRemove({ hair_color: "brown" }, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(result);
+//     }
+// });
+
+
+// -------------------------------------------
+// Remove 
+ /**********************************************************************
+1-Remove a single document wherein the hair_color is 'brown'
+**********************************************************************/ 
+// Vampire.findOneAndRemove({ hair_color: "brown" }, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(result);
+//     }
+// });
+
+
+
+ /**********************************************************************
+2- We found out that the vampires with the blue eyes were just fakes!
+// Let's remove all the vampires who have blue eyes from our database.
+**********************************************************************/ 
+// Vampire.deleteMany({ eye_color: "blue" }, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(result);
+//     }
+// });

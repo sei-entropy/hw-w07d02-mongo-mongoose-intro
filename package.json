@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.0.10"
+    "brew": "0.0.8",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.3",
+    "services": "0.0.3",
+    "start": "^5.1.0"
   }
 }

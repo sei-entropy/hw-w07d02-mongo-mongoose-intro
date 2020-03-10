@@ -12,7 +12,7 @@ const vampireSchema = new Schema({
     location: String,
     gender: String,
     victims: { type: Number, min: 0},
-});
+}, {strict: false});
 
 const Vampire = mongoose.model('Vampire', vampireSchema);
 
